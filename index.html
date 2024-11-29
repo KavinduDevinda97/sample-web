@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Tech Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #10b981;
+            --dark-bg: #121212;
+            --dark-card: #1e1e1e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Modern Navbar */
+        .modern-navbar {
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(15px);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+
+        }
+
+        .logo-name {
+            color: #0073c1;
+        }
+
+        .modern-navbar .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modern-navbar .navbar-brand img {
+            height: 80px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .modern-navbar .navbar-brand img:hover {
+            transform: scale(1.1);
+        }
+
+        .modern-navbar .nav-link {
+            color: rgba(255, 255, 255, 0.7);
+            border: 2px solid rgba(0, 115, 189, 255);
+            border-radius: 30px;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .modern-navbar .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+
+            transition: all 0.3s ease;
+        }
+
+        .modern-navbar .nav-link:hover {
+            color: #020000;
+            background-color: #fdcd00;
+            font-weight: 600;
+            border: none;
+            transform: translateY(-5px);
+            transform: scale(1.2);
+        }
+
+        .modern-navbar .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .modern-navbar .dropdown-menu {
+            background-color: var(--dark-card);
+            border: none;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .modern-navbar .dropdown-item {
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .modern-navbar .dropdown-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+
+
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .hero-section .lead {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-primary-modern {
+            background-color: var(--primary-color);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+            border: none;
+            padding: 12px 25px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary-modern:hover {
+            background-color: #fdcd00;
+            color: black;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 10px rgba(232, 235, 37, 0.3);
+        }
+
+        .btn-secondary-modern {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+
+            color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-modern:hover {
+            background-color: #fdcd00;
+            box-shadow: 0 10px 10px rgba(232, 235, 37, 0.3);
+            transform: translateY(-5px);
+            color: black;
+        }
+
+        .video-wrapper {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -20px rgba(49, 182, 67, 0.5);
+            transition: transform 0.3s ease;
+
+
+        }
+
+        .video-wrapper:hover {
+            transform: scale(1.02);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 991px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Logo Slider Styles */
+        .logo-slider-section {
+            background-color: var(--dark-bg);
+            padding: 40px 0;
+            overflow: hidden;
+        }
+
+        .logo-slider {
+            display: flex;
+            animation: slide 20s linear infinite;
+            gap: 50px;
+            width: max-content;
+        }
+
+        .logo-slider-container {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .logo-slider img {
+            height: 50px;
+            filter: brightness(auto) invert(1);
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-slider img:hover {
+            opacity: 1;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Responsive Adjustments for Slider */
+        @media (max-width: 768px) {
+            .logo-slider img {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Modern Navbar -->
+    <nav class="modern-navbar navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./asset/logo.png" alt="Company Logo">
+                <span class="logo-name fw-bold">MOBIZZ</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Blogs</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Event</a></li>
+                            <li><a class="dropdown-item" href="#">News</a></li>
+                            <li><a class="dropdown-item" href="#">Others</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero-section container">
+        <div class="row align-items-center">
+            <div class="col-md-6 hero-content">
+                <h1>The World of Mobizz</h1>
+                <p class="lead"> Over 10 years old, Mobizz is a growing company of diverse group of businesses. Our main
+                    lines of business is human resource services, Engineering and Network solutions, and claim
+                    management, with operations across the Asian region. We sustain our expansion through strategic
+                    local and international alliances. </p>
+                <p>Through the vibrant history of a decade, Mobizz engineering is one of the leading service providers
+                    for mobile telecommunication, engineering infrastructure and network management, operating with
+                    leading industry brands in Sri Lanka. Mobizz human resource are rapidly growing service providers in
+                    the recruitment sector and human resource management, and our operations are across the Asian
+                    regions. In line of claim management, we collaborated with leading international insurance company
+                    and provide the travel claim management services covering Europe. And excelling in corporate claim
+                    and Outpatient Department management in Sri Lanka.</p>
+                <div class="hero-cta">
+                    <a href="#" class="btn btn-primary-modern">
+                        Get Started
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <a href="#" class="btn btn-secondary-modern">Learn More</a>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0">
+                <div class="video-wrapper">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY"
+                        title="Product Overview" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="logo-slider-section">
+        <div class="logo-slider-container">
+            <div class="logo-slider">
+                <!-- Duplicate logos to create smooth infinite scroll */  -->
+                <img src="./asset/slider1.png" alt="Partner Logo">
+                <img src="./asset/slider2.png" alt="Partner Logo">
+                <img src="./asset/slider3.png" alt="Partner Logo">
+                <img src="./asset/slider4.png" alt="Partner Logo">
+                <img src="./asset/slider5.png" alt="Partner Logo">
+                <img src="./asset/slider6.png" alt="Partner Logo">
+                <img src="./asset/slider7.png" alt="Partner Logo">
+                <img src="./asset/slider8.png" alt="Partner Logo">
+                <img src="./asset/slider9.png" alt="Partner Logo">
+                <img src="./asset/slider10.png" alt="Partner Logo">
+
+                <!-- Duplicated set for seamless scrolling -->
+                <img src="./asset/slider1.png" alt="Partner Logo">
+                <img src="./asset/slider2.png" alt="Partner Logo">
+                <img src="./asset/slider3.png" alt="Partner Logo">
+                <img src="./asset/slider4.png" alt="Partner Logo">
+                <img src="./asset/slider5.png" alt="Partner Logo">
+                <img src="./asset/slider6.png" alt="Partner Logo">
+                <img src="./asset/slider7.png" alt="Partner Logo">
+                <img src="./asset/slider8.png" alt="Partner Logo">
+                <img src="./asset/slider9.png" alt="Partner Logo">
+                <img src="./asset/slider10.png" alt="Partner Logo">
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
